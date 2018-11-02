@@ -4,7 +4,7 @@
 users(id,login,pass,nic,vk,skype, last_ip), data(id, user_id, data))
 
 Роутинг
-Реализуется на PHP по паттерну MVC.
+Реализуется на PHP.
 Создание регистрации
 Реализуется с помощью PHP и MySQL. Для криптования пароля используется функция sha1.
 
