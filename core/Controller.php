@@ -15,13 +15,9 @@ class Controller
         else return false; 
     }
 
-    public static function findPage($error='404'){
-        if(file_exists(ROOT . "pages/" . PAGE . ".php")) require_once('pages/' . PAGE . ".php");
+    public static function findPage($page = PAGE, $error = '404'){
+        if(file_exists(ROOT . "pages/" . $page . ".php")) require_once('pages/' . $page . ".php");
         else require_once(ROOT . "pages/$error.php");
-    }
-
-    public static function page($name){
-        require("pages/$name.php");
         exit();
     }
 

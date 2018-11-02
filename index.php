@@ -34,19 +34,17 @@ if($settings['debug'] == true){
     $tests = require(ROOT . 'tests/do.php');
     foreach($tests as $test){
         $class = "tests\\$test";
-        $test = new $class;
-        $test->start();
+        $test = new $class();
     }
     exit();
 }
 
 // Start engine
 if(Controller::isAuth() && (PAGE == 'auth' || PAGE == 'reg')){
-    Controller::page('profile');
-    echo 'auth';
+    Controller::findPage('profile');
 }
 if(!Controller::isAuth() && PAGE != 'reg'){
-    Controller::page('auth');
+    Controller::findPage('auth');
 }
 
-echo Controller::findPage();
+Controller::findPage();
