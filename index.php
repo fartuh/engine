@@ -3,8 +3,8 @@
 session_start();
 
 //defines
-if(!isset($_GET['page']) || $_GET['page'] == '') define('PAGE', 'profile');
-else define('PAGE', strip_tags(trim($_GET['page'])));
+if(!isset($_GET['__page__']) || $_GET['__page__'] == '') define('PAGE', 'profile');
+else define('PAGE', strip_tags(trim($_GET['__page__'])));
 define('ROOT', __DIR__ . '/');
 
 //autoload

@@ -21,4 +21,9 @@ class Controller
         exit();
     }
 
+    public static function getFilePath($name){
+        $path = ROOT . "pages/actions/$name.php";
+        return $path;
+    }
+    
 }
