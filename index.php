@@ -30,14 +30,7 @@ use tests\Test;
 
 $settings = require('settings.php');
 
-if($settings['debug'] == true){
-    $tests = require(ROOT . 'tests/do.php');
-    foreach($tests as $test){
-        $class = "tests\\$test";
-        $test = new $class();
-    }
-    exit();
-}
+require(ROOT . 'core/sets.php');
 
 // Start engine
 if(Controller::isAuth() && (PAGE == 'auth' || PAGE == 'reg')){

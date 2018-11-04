@@ -25,5 +25,13 @@ class Controller
         $path = ROOT . "pages/actions/$name.php";
         return $path;
     }
+
+    public static function action($action){
+        require_once(ROOT . "pages/actions/$action.php");
+    }
+
+    public static function crypt($pass){
+        return sha1($pass);
+    }
     
 }
