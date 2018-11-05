@@ -1,3 +1,15 @@
+<?php
+
+use core\Controller;
+
+if(isset($_POST['act'])){
+    setcookie('id', '', time() - 3600);
+    unset($_SESSION['id']);
+    header("Refresh:0");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +17,9 @@
         <title></title>
 </head>
 <body>
-        <h1>profile</h1>
+    <form action="" method="post"> 
+        <input type="hidden" name="act" value="true">
+        <input type="submit" value="Выйти">
+    </form>
 </body>
 </html>

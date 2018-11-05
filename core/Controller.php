@@ -33,5 +33,10 @@ class Controller
     public static function crypt($pass){
         return sha1($pass);
     }
+
+    public static function url($url, $str){
+        $url = $url . "/$str";
+        return $url;
+    }
     
 }

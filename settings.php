@@ -2,6 +2,7 @@
 
 return 
 [
+    'host'  => 'localhost/engine',
     'debug' => false,
     'db'    => 
         [
