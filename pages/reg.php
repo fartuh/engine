@@ -43,8 +43,8 @@ Controller::action('reg');
         <label for="">Ваш ник(будет виден всем участникам сайта)<br/><input required type="text" name="nic"><br/></label>
         <label for="">Ваш Вконтакте (увиличит шансы восстановления аккаунта при утере пароля)<br/><input type="text" name="vk"><br/></label>
         <label for="">Ваш skype (увиличит шансы восстановления аккаунта при утере пароля)<br/><input type="text" name="skype"><br/></label>
-        <label for="">Ваш Пароль<br/><input required type="text" name="pass"><br/></label>
-        <label for="">Повтрите Пароль<br/><input required type="text" name="pass_repeat"><br/></label>
+        <label for="">Ваш Пароль<br/><input required type="password" name="pass"><br/></label>
+        <label for="">Повтрите Пароль<br/><input required type="password" name="pass_repeat"><br/></label>
         <label for="">Секретное слово для восстановления аккаунта<br/><input required type="text" name="secret"><br/></label>
         <label for=""><input type="checkbox" name="remember" value="remember">Запомнить меня при входе<br/><br/></label>
         <input type="submit" onclick="return valForm()" value="Войти">
