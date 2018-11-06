@@ -4,6 +4,12 @@ namespace core;
 
 class Controller
 {
+    private static $sets = [];
+
+    public static function setSets($sets){
+        self::$sets = $sets;
+    }
+
     public static function isAuth(){
         if(isset($_SESSION['id']) || isset($_COOKIE['id'])) return true;
         return false;
@@ -34,9 +40,8 @@ class Controller
         return sha1($pass);
     }
 
-    public static function url($url, $str){
-        $url = $url . "/$str";
-        return $url;
+    public static function url($url){
+        return self::$sets['host'] . '/' . $url;
     }
     
 }

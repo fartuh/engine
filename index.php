@@ -32,6 +32,8 @@ $settings = require('settings.php');
 
 require(ROOT . 'core/sets.php');
 
+Controller::setSets($settings);
+
 // Start engine
 if(Controller::isAuth() && (PAGE == 'auth' || PAGE == 'reg')){
     Controller::findPage('profile');

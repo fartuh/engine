@@ -12,7 +12,8 @@ Controller::action('auth');
         <title></title>
 </head>
 <body>
-    <h1>auth</h1>
+    <h1>Авторизация</h1>
+    <a href="<?= Controller::url('reg') ?>">Регистрация</a>
     <form action="" method="post">
         <label for="">Логин<br/><input type="text" name="login"><br/></label>
         <label for="">Пароль<br/><input type="text" name="pass"><br/></label>

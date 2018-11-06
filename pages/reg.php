@@ -36,7 +36,8 @@ Controller::action('reg');
 </script>
 
 <body>
-    <h1>reg</h1>
+    <h1>Регистрация</h1>
+    <a href="<?= Controller::url('auth') ?>">Авторизация</a>
     <form action="" method="post">
         <label for="">Ваш логин<br/><input required type="text" name="login"><br/></label>
         <label for="">Ваш ник(будет виден всем участникам сайта)<br/><input required type="text" name="nic"><br/></label>
