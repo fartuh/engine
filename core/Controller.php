@@ -6,7 +6,7 @@ class Controller
 {
     private static $sets = [];
 
-    public static function setSets($sets){
+    public static function sets($sets){
         self::$sets = $sets;
     }
 

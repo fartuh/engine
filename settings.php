@@ -3,7 +3,7 @@
 return 
 [
     'host'  => 'http://localhost/engine',
-    'debug' => false,
+    'debug' => false, 
     'db'    => 
         [
             'on'      => true,

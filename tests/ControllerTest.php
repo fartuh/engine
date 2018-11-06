@@ -8,9 +8,10 @@ class ControllerTest extends Test
 {
 
     public function __construct(){
-        $this->auth();
+        //$this->auth();
         //$this->pages('lalala');
-        $this->actions('auth');
+        //$this->actions('auth');
+        //$this->sets();
     }
 
     private function auth(){
@@ -36,6 +37,11 @@ class ControllerTest extends Test
 
     private function actions($name){
         echo Controller::action($name);
+    }
+
+    private function sets(){
+        Controller::setSets(['hi', 'i\'m fine']);
+        var_dump(Controller::$sets);
     }
 
 }
