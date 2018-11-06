@@ -4,6 +4,12 @@ namespace core;
 
 class Controller
 {
+    private static $sets = [];
+
+    public static function sets($sets){
+        self::$sets = $sets;
+    }
+
     public static function isAuth(){
         if(isset($_SESSION['id']) || isset($_COOKIE['id'])) return true;
         return false;
@@ -21,4 +27,21 @@ class Controller
         exit();
     }
 
+    public static function getFilePath($name){
+        $path = ROOT . "pages/actions/$name.php";
+        return $path;
+    }
+
+    public static function action($action){
+        require_once(ROOT . "pages/actions/$action.php");
+    }
+
+    public static function crypt($pass){
+        return sha1($pass);
+    }
+
+    public static function url($url){
+        return self::$sets['host'] . '/' . $url;
+    }
+    
 }

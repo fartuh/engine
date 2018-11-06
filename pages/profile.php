@@ -5,6 +5,7 @@
         <title></title>
 </head>
 <body>
-        <h1>profile</h1>
+    <a href="<?= \core\Controller::url('logout') ?>">logout</a>
+    
 </body>
 </html>

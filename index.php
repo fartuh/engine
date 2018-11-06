@@ -2,12 +2,12 @@
 
 session_start();
 
-//defines
-if(!isset($_GET['page']) || $_GET['page'] == '') define('PAGE', 'profile');
-else define('PAGE', strip_tags(trim($_GET['page'])));
+// Defines
+if(!isset($_GET['__page__']) || $_GET['__page__'] == '') define('PAGE', 'profile');
+else define('PAGE', strip_tags(trim($_GET['__page__'])));
 define('ROOT', __DIR__ . '/');
 
-//autoload
+// Autoload
 spl_autoload_register(function ($class) {
     $str = '';
     $c = 0;
@@ -25,19 +25,16 @@ spl_autoload_register(function ($class) {
     require($str . '.php');
 });
 
+// Use classes
 use core\Controller;
 use tests\Test;
 
 $settings = require('settings.php');
 
-if($settings['debug'] == true){
-    $tests = require(ROOT . 'tests/do.php');
-    foreach($tests as $test){
-        $class = "tests\\$test";
-        $test = new $class();
-    }
-    exit();
-}
+require(ROOT . 'core/sets.php');
+
+// Controller gets settings from file
+Controller::sets($settings);
 
 // Start engine
 if(Controller::isAuth() && (PAGE == 'auth' || PAGE == 'reg')){
