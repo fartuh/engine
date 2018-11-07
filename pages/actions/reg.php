@@ -38,8 +38,8 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
 
             if($remember == 'remember') $_SESSION['id'] = $data['id'];
             else setcookie('id', $data['id'], time() + 60*60*24);
-
-            header("Refresh:0");
+            $url = Controller::url('profile');
+            header("Location: $url");
         }
         else{
             echo 'Ник занят';
