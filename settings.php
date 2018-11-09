@@ -2,9 +2,13 @@
 
 return 
 [
-    'host'  => 'http://localhost/engine',
-    'debug' => false, 
-    'db'    => 
+    'debug'   => false, 
+
+    'host'    => 'http://localhost/engine',
+
+    'instagram' => 'localhost/engine/instagram',
+
+    'db'      => 
         [
             'on'      => true,
             'host'    => 'localhost',

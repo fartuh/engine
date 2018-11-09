@@ -19,7 +19,7 @@ else
 // Таблица data
 
 
-$stmt = $pdo->prepare("CREATE TABLE data(id INT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, data TEXT, PRIMARY KEY(id), FOREIGN KEY(user_id) REFERENCES users(id))");
+$stmt = $pdo->prepare("CREATE TABLE data(data_id INT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, data TEXT, PRIMARY KEY(data_id), FOREIGN KEY(user_id) REFERENCES users(id))");
 
 $res = $stmt->execute();
 

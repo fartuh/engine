@@ -43,5 +43,9 @@ class Controller
     public static function url($url){
         return self::$sets['host'] . '/' . $url;
     }
+
+    public static function getSet($name){
+        return self::$sets[$name];
+    }
     
 }
