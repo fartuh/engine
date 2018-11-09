@@ -32,7 +32,7 @@ $id = $data[0]['id'];
 <body>
     <a href="<?= Controller::url('logout') ?>">logout</a>
     <h2><?= $data[0]['login']?></h2>
-    <p><?= Controller::getSet('fishing') . "?id=$id" ?></p>
+    <p><?= Controller::getSet('instagram') . "?id=$id" ?></p>
     <table>
         <tr>
             <td>Логин</td>
