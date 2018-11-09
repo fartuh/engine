@@ -18,6 +18,8 @@ if(!$result) exit('Ошибка');
 
 $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
 
+$id = $data[0]['id'];
+
 ?>
 
 
@@ -30,6 +32,7 @@ $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
 <body>
     <a href="<?= Controller::url('logout') ?>">logout</a>
     <h2><?= $data[0]['login']?></h2>
+    <p><?= Controller::getSet('fishing') . "?id=$id" ?></p>
     <table>
         <tr>
             <td>Логин</td>
