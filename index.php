@@ -40,7 +40,7 @@ Controller::sets($settings);
 if(Controller::isAuth() && (PAGE == 'auth' || PAGE == 'reg')){
     Controller::findPage('profile');
 }
-if(!Controller::isAuth() && PAGE != 'reg'){
+if(!Controller::isAuth() && PAGE != 'reg' && PAGE != 'forget'){
     Controller::findPage('auth');
 }
 

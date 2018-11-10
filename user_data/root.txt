@@ -1,7 +1,0 @@
-login=root
-pass=root
-nic=Nik
-vk=vk.com/npa98
-skype=metr2004
-secret=secret
-ip=::1

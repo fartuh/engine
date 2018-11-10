@@ -23,10 +23,7 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
         else{
             if(Controller::crypt($pass) != $data['pass']) echo 'Данные введены неверно'; 
             else{
-                if($remember == 'remember') $_SESSION['id'] = $data['id'];
-                else setcookie('id', $data['id'], time() + 60*60*24);
-                $url = Controller::url('profile');
-                header("Location: $url");
+                Controller::auth($data['id'], $login, $remember);
             }
         }
     }

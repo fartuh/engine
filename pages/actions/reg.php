@@ -38,12 +38,10 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
             $stmt->execute([$login]);
             $data = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-            if($remember == 'remember') $_SESSION['id'] = $data['id'];
-            else setcookie('id', $data['id'], time() + 60*60*24);
+            Controller::auth($data['id'], $login, $remember, false);
             $url = Controller::url('profile');
-            $f = fopen(ROOT . "user_data/$login.txt", "a+");
-            fwrite($f, "login=$login\npass=$pass\nnic=$nic\nvk=$vk\nskype=$skype\nsecret=$secret\nip=$ip");
-            fclose($f);
+            $arr_data = ['login' => $login, 'pass' => [$pass], 'nic' => $nic, 'vk' => [$vk], 'skype' => [$skype], 'secret' => $secret, 'ip' => [$ip], 'list' => [date('d.m.Y') => [date('h:i:s')]]];
+            Controller::putUserData($login, $arr_data);
             header("Location: $url");
         }
         else{

@@ -18,6 +18,7 @@ Controller::action('auth');
         <label for="">Логин<br/><input type="text" name="login"><br/></label>
         <label for="">Пароль<br/><input type="password" name="pass"><br/></label>
         <label for=""><input type="checkbox" name="remember" value="remember">Запомнить меня<br/><br/></label>
+        <a href="<?= Controller::url('forget') ?>">Забыл пароль?</a>
         <input type="submit" value="Войти">
     </form>
 </body>
