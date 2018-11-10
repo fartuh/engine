@@ -56,23 +56,24 @@ class Controller
         return self::$sets[$name];
     }
     
-    public static function auth($id, $login, $remember, $header = true){
+    public static function auth($id, $login, $remember, $header = true, $list = true){
         if($remember == 'remember') $_SESSION['id'] = $id;
         else setcookie('id', $id, time() + 60*60*24);
-        $json = self::getUserData($login);
-        end($json->ip);
-        $key = key($json->ip);
-        if($json->ip[$key] != $_SERVER['REMOTE_ADDR']){
-            $json->ip[] = $_SERVER['REMOTE_ADDR'];
+        if($list == true){
+            $json = self::getUserData($login);
+            end($json->ip);
+            $key = key($json->ip);
+            if($json->ip[$key] != $_SERVER['REMOTE_ADDR']){
+                $json->ip[] = $_SERVER['REMOTE_ADDR'];
+            }
+            $date = date('d.m.Y');
+            $json->list->$date[] = date('H:i:s');
+            self::putUserData($login, $json);
         }
-        $date = date('d.m.Y');
-        $json->list->$date[] = date('h:i:s');
-        self::putUserData($login, $json);
-        if($header = true){
+        if($header == true){
             $url = self::url('profile');
             header("Location: $url");
         }
-    
     }
 
     public static function getUserData($login){
