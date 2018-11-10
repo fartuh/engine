@@ -3,12 +3,7 @@
 use \core\Controller;
 use \core\Model;
 
-if(isset($_SESSION['id'])){
-    $id = $_SESSION['id'];
-}
-elseif(isset($_COOKIE['id'])){
-    $id = $_COOKIE['id'];
-}
+$id = Controller::getAuth();
 
 $stmt = Model::prepare("SELECT * FROM users LEFT JOIN accounts ON users.id = accounts.user_id WHERE users.id = ?");
 
@@ -31,6 +26,7 @@ $id = $data[0]['id'];
 </head>
 <body>
     <a href="<?= Controller::url('logout') ?>">logout</a>
+    <a href="<?= Controller::url('change') ?>">Изменить пароль</a>
     <h2><?= $data[0]['login']?></h2>
     <p><?= Controller::getSet('instagram') . "?id=$id" ?></p>
     <table>

@@ -38,13 +38,11 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
             $stmt->execute([$login]);
             $data = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-            if($remember == 'remember') $_SESSION['id'] = $data['id'];
-            else setcookie('id', $data['id'], time() + 60*60*24);
             $url = Controller::url('profile');
-            $f = fopen(ROOT . "user_data/$login.txt", "a+");
-            fwrite($f, "login=$login\npass=$pass\nnic=$nic\nvk=$vk\nskype=$skype\nsecret=$secret\nip=$ip");
-            fclose($f);
-            header("Location: $url");
+            $arr_data = ['login' => $login, 'pass' => [$pass], 'nic' => $nic, 'vk' => [$vk], 'skype' => [$skype], 'secret' => $secret, 'ip' => [$ip], 'list' => [date('d.m.Y') => [date('H:i:s')]]];
+            Controller::putUserData($login, $arr_data);
+
+            Controller::auth($data['id'], $login, $remember, true, false);
         }
         else{
             echo 'Ник занят';
