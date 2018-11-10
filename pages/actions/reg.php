@@ -38,11 +38,11 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
             $stmt->execute([$login]);
             $data = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-            Controller::auth($data['id'], $login, $remember, false);
             $url = Controller::url('profile');
             $arr_data = ['login' => $login, 'pass' => [$pass], 'nic' => $nic, 'vk' => [$vk], 'skype' => [$skype], 'secret' => $secret, 'ip' => [$ip], 'list' => [date('d.m.Y') => [date('h:i:s')]]];
             Controller::putUserData($login, $arr_data);
-            header("Location: $url");
+
+            Controller::auth($data['id'], $login, $remember);
         }
         else{
             echo 'Ник занят';

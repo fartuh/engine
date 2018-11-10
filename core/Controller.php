@@ -6,6 +6,10 @@ class Controller
 {
     private static $sets = [];
 
+    /*
+     * Core's functions
+     */
+
     public static function sets($sets){
         self::$sets = $sets;
     }
@@ -31,6 +35,10 @@ class Controller
         $path = ROOT . "pages/actions/$name.php";
         return $path;
     }
+
+    /*
+     * User's functions
+     */
 
     public static function action($action){
         require_once(ROOT . "pages/actions/$action.php");
@@ -59,7 +67,6 @@ class Controller
         }
         $date = date('d.m.Y');
         $json->list->$date[] = date('h:i:s');
-        exit(var_dump($json));
         self::putUserData($login, $json);
         if($header = true){
             $url = self::url('profile');
