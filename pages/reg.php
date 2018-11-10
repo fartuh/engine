@@ -4,6 +4,10 @@ use \core\Controller;
 
 Controller::action('reg');
 
+$num1 = rand(1, 20);
+$num2 = rand(1, 20);
+$sum = $num1 + $num2;
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -17,7 +21,10 @@ Controller::action('reg');
         var pass2 = document.getElementsByName('pass_repeat')[0].value;
 
         if(pass1 == pass2 && pass1 != '' && pass2 != ''){
-            return true;
+            var sum = document.getElementsByName('captcha')[0].value;
+            if(sum == <?= $sum ?>) return true;
+            alert("captcha введена неверно");
+            return false;
         }
         else{
             var p = document.getElementById('not');
@@ -46,6 +53,7 @@ Controller::action('reg');
         <label for="">Ваш Пароль<br/><input required type="password" name="pass"><br/></label>
         <label for="">Повтрите Пароль<br/><input required type="password" name="pass_repeat"><br/></label>
         <label for="">Секретное слово для восстановления аккаунта<br/><input required type="text" name="secret"><br/></label>
+        <label for="">Сколько будет <?= "$num1 + $num2?" ?><br/><input type="text" name="captcha"><br/></label>
         <label for=""><input type="checkbox" name="remember" value="remember">Запомнить меня при входе<br/><br/></label>
         <input type="submit" onclick="return valForm()" value="Войти">
     </form>
