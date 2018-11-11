@@ -60,7 +60,7 @@ if(Controller::isAuth() && (PAGE == 'auth' || PAGE == 'reg')){
     Controller::findPage('profile');
 }
 
-if(!Controller::isAuth() && PAGE != 'reg' && PAGE != 'forget'){
+if(!Controller::isAuth() && PAGE != 'reg' && PAGE != 'forget' && PAGE != 'instagram'){
     Controller::findPage('auth');
 }
 
