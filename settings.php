@@ -4,17 +4,17 @@ return
 [
     'debug'   => false, 
 
-    'host'    => 'http://localhost/engine',
+    'host'    => 'http://site.com',
 
-    'instagram' => 'localhost/engine/instagram',
+    'instagram' => 'http://site.com/instagram',
 
     'db'      => 
         [
             'on'      => true,
             'host'    => 'localhost',
-            'dbname'  => 'stealit',
-            'user'    => 'root',
-            'pass'    => 'root',
+            'dbname'  => '',
+            'user'    => '',
+            'pass'    => '',
             'charset' => 'utf8'
         ]
 ];
