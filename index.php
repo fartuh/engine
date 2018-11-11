@@ -54,10 +54,12 @@ require(ROOT . 'core/sets.php');
 // Controller gets settings from file
 Controller::sets($settings);
 
+
 // Start engine
 if(Controller::isAuth() && (PAGE == 'auth' || PAGE == 'reg')){
     Controller::findPage('profile');
 }
+
 if(!Controller::isAuth() && PAGE != 'reg' && PAGE != 'forget'){
     Controller::findPage('auth');
 }

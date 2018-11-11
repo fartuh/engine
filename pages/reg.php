@@ -19,12 +19,24 @@ $sum = $num1 + $num2;
     function valForm(){
         var pass1 = document.getElementsByName('pass')[0].value;
         var pass2 = document.getElementsByName('pass_repeat')[0].value;
+        var secret = document.getElementsByName('secret')[0].value;
 
         if(pass1 == pass2 && pass1 != '' && pass2 != ''){
             var sum = document.getElementsByName('captcha')[0].value;
-            if(sum == <?= $sum ?>) return true;
-            alert("captcha введена неверно");
-            return false;
+            if(sum != <?= $sum ?>){
+                alert("captcha введена неверно");
+                return false;
+            }
+
+            if(pass1.length < 8){
+                alert("Пароль должен быть не меньше 8 символов");
+                return false;
+            }
+            if(secret.length < 8){
+                alert("Секретное слово должно быть не меньше 8 символов");
+                return false;
+            }
+            return true;
         }
         else{
             var p = document.getElementById('not');
@@ -39,6 +51,7 @@ $sum = $num1 + $num2;
             body.appendChild(p);
             return false;
         }
+
     }
 </script>
 
